@@ -68,6 +68,25 @@
             android:textAllCaps="false"
             android:textColor="@android:color/background_light" />
 
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="350dp"
+            android:layout_height="130dp"
+            android:layout_above="@+id/emailId"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="60dp"
+            app:srcCompat="@drawable/profarminglogo" />
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="38dp"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/profarmingtractor" />
+
     </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>
