@@ -69,6 +69,15 @@
             android:textAllCaps="false"
             android:textColor="@android:color/background_light" />
 
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_above="@+id/password"
+            android:layout_centerHorizontal="true"
+            android:visibility="gone"/>
+
     </RelativeLayout>
 
 
