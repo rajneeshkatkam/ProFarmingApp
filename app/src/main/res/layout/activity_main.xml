@@ -29,7 +29,7 @@
             android:layout_above="@+id/password"
             android:layout_alignParentStart="true"
             android:layout_marginBottom="34dp"
-            android:hint="Email Id"
+            android:hint="Email ID"
             android:inputType="textEmailAddress" />
 
         <EditText
@@ -86,6 +86,15 @@
             android:layout_marginTop="38dp"
             android:scaleType="fitXY"
             app:srcCompat="@drawable/profarmingtractor" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_above="@+id/password"
+            android:layout_centerHorizontal="true"
+            android:visibility="gone" />
 
     </RelativeLayout>
 

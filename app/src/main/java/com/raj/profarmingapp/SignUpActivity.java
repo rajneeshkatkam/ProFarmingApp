@@ -14,6 +14,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseUser;
 
 import java.util.Objects;
@@ -39,15 +40,6 @@ public class SignUpActivity extends AppCompatActivity {
         progressBar=(ProgressBar) findViewById(R.id.progressBar);
     }
 
-    @Override
-    public void onStart() {
-        super.onStart();
-        // Check if user is signed in (non-null) and update UI accordingly.
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        Log.i("AlreadyLogin","You are already logged in");
-       // updateUI(currentUser);
-    }
-
 
     void signupClick(View v)
     {
@@ -61,22 +53,30 @@ public class SignUpActivity extends AppCompatActivity {
         ///Email ID
         if(Objects.equals(emailId1, ""))
         {
-            Toast.makeText(this,"Please enter your email id",Toast.LENGTH_SHORT).show();
+            emailId.setError("Please enter your email id");
+            emailId.requestFocus();
+            //Toast.makeText(this,"Please enter your email id",Toast.LENGTH_SHORT).show();
         }
         else if(!m.find())
         {
-            Toast.makeText(this,"Enter a valid Email Address",Toast.LENGTH_SHORT).show();
+            emailId.setError("Enter a valid Email Address");
+            emailId.requestFocus();
+           // Toast.makeText(this,"Enter a valid Email Address",Toast.LENGTH_SHORT).show();
         }
 
 
         ///Password
         else if(Objects.equals(password1, ""))
         {
-            Toast.makeText(this,"Please enter your password",Toast.LENGTH_SHORT).show();
+            password.setError("Please enter your password");
+            password.requestFocus();
+            //Toast.makeText(this,"Please enter your password",Toast.LENGTH_SHORT).show();
         }
         else if(password1.length()<6)
         {
-            Toast.makeText(this, "Minimum password length is 6", Toast.LENGTH_SHORT).show();
+            password.setError("Minimum password length is 6");
+            password.requestFocus();
+            //Toast.makeText(this, "Minimum password length is 6", Toast.LENGTH_SHORT).show();
         }
 
         ////New User SignUp
@@ -87,10 +87,23 @@ public class SignUpActivity extends AppCompatActivity {
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     progressBar.setVisibility(View.GONE);
                     if (task.isSuccessful()) {
+
                         Toast.makeText(getApplicationContext(), "User Registeration Successfull", Toast.LENGTH_SHORT).show();
-                    } else {
-                        Toast.makeText(getApplicationContext(), "Registeration Unsuccessfull", Toast.LENGTH_SHORT).show();
+                        Intent intent=new Intent(getApplicationContext(),afterLogin.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        startActivity(intent);
+                        finish();
+
                     }
+                    else if(task.getException() instanceof FirebaseAuthUserCollisionException)
+                    {
+                        Toast.makeText(getApplicationContext(), "You are already Registered", Toast.LENGTH_SHORT).show();
+                    }
+                    else
+                    {
+                        Toast.makeText(getApplicationContext(), task.getException().toString(), Toast.LENGTH_LONG).show();
+                    }
+
                 }
             });
         }
@@ -100,6 +113,7 @@ public class SignUpActivity extends AppCompatActivity {
     void alreadyHaveAnAccountClick(View v)
     {
         startActivity(new Intent(this,MainActivity.class));
+        finish();
     }
 }
 

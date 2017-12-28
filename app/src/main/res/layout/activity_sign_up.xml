@@ -76,7 +76,7 @@
             android:layout_height="75dp"
             android:layout_above="@+id/password"
             android:layout_centerHorizontal="true"
-            android:visibility="gone"/>
+            android:visibility="gone" />
 
         <ImageView
             android:id="@+id/imageView5"
