@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "438109044657",
+    "firebase_url": "https://alien-array-172810.firebaseio.com",
+    "project_id": "alien-array-172810",
+    "storage_bucket": "alien-array-172810.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:438109044657:android:7bbdcff9d4d411dd",
+        "android_client_info": {
+          "package_name": "com.raj.profarmingapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "438109044657-0m4gq4d7f2f3s0ic0a6eik67o2tmehlq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.raj.profarmingapp",
+            "certificate_hash": "f7ee398cfe1da1d671b7ce314c5a9e92efbcabf9"
+          }
+        },
+        {
+          "client_id": "438109044657-353usgfc0jtmo5ddric80ii90q5b8dan.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDbBwwdS-ErTjwbys5HkV2s4Fo8Av0T3g0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "438109044657-353usgfc0jtmo5ddric80ii90q5b8dan.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
