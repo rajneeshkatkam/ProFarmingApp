@@ -16,6 +16,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import java.util.Objects;
 import java.util.regex.Matcher;
@@ -28,6 +30,7 @@ public class SignUpActivity extends AppCompatActivity {
     Matcher m;
     private FirebaseAuth mAuth;
     ProgressBar progressBar;
+    private StorageReference mStorageRef;
 
 
     @Override
@@ -38,6 +41,7 @@ public class SignUpActivity extends AppCompatActivity {
         password=(EditText) findViewById(R.id.password);
         mAuth=FirebaseAuth.getInstance();
         progressBar=(ProgressBar) findViewById(R.id.progressBar);
+        mStorageRef = FirebaseStorage.getInstance().getReference();
     }
 
 
