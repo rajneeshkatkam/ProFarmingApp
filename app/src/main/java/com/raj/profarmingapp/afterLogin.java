@@ -43,7 +43,7 @@ public class afterLogin extends AppCompatActivity {
         if(currentUser==null) {
 
             startActivity(new Intent(getApplicationContext(),MainActivity.class));
-            Toast.makeText(getApplicationContext(),"Welcome back",Toast.LENGTH_LONG).show();
+            //Toast.makeText(getApplicationContext(),"Welcome back",Toast.LENGTH_LONG).show();
             finish();
 
         }
