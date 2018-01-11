@@ -1,6 +1,8 @@
 package com.raj.profarmingapp;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -16,6 +18,8 @@ import com.google.firebase.auth.FirebaseUser;
 public class afterLogin extends AppCompatActivity {
     private static final String TAG = "afterLoginActivity";
     private FirebaseAuth mAuth;
+    Boolean flag;
+    SharedPreferences file;
    /* private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mToggle;*/
 
@@ -23,8 +27,11 @@ public class afterLogin extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_after_login);
-        checkFilePermissions();
+
         mAuth=FirebaseAuth.getInstance();
+        checkFilePermissions();
+
+
 
         
        /* mDrawerLayout=(DrawerLayout) findViewById(R.id.drawer_layout);
@@ -51,20 +58,26 @@ public class afterLogin extends AppCompatActivity {
     }
 
     private void checkFilePermissions() {
-        if(Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP){
+
+        file=getSharedPreferences("save",0);
+        flag=Boolean.valueOf(file.getString("flag","false"));
+        Log.i("flag",String.valueOf(flag));
+        if(Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP && flag==false){
             int permissionCheck = afterLogin.this.checkSelfPermission("Manifest.permission.READ_EXTERNAL_STORAGE");
             permissionCheck += afterLogin.this.checkSelfPermission("Manifest.permission.WRITE_EXTERNAL_STORAGE");
             if (permissionCheck != 0) {
                 this.requestPermissions(new String[]{android.Manifest.permission.WRITE_EXTERNAL_STORAGE,android.Manifest.permission.READ_EXTERNAL_STORAGE}, 1001); //Any number
             }
+            flag=true;
+            Log.i("flag",String.valueOf(flag));
         }else{
             Log.d(TAG, "checkBTPermissions: No need to check permissions. SDK version < LOLLIPOP.");
         }
+
+        SharedPreferences.Editor edit=file.edit();
+        edit.putString("flag",String.valueOf(flag));
+        edit.apply();
     }
-
-
-
-
 
 
 }
