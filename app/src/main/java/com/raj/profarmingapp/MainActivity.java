@@ -1,12 +1,12 @@
 package com.raj.profarmingapp;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
     Pattern p;
     Matcher m;
     private FirebaseAuth mAuth;
-    ProgressBar progressBar;
+    ProgressDialog progressDialog;
 
 
     @Override
@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         emailId=(EditText) findViewById(R.id.emailId);
         password=(EditText) findViewById(R.id.password);
         mAuth=FirebaseAuth.getInstance();
-        progressBar=(ProgressBar) findViewById(R.id.progressBar);
+        progressDialog=new ProgressDialog(this);
 
         //mAuth=FirebaseAuth.getInstance();
     }
@@ -99,11 +99,12 @@ public class MainActivity extends AppCompatActivity {
 
         ////New User SignUp
         else {
-            progressBar.setVisibility(View.VISIBLE);
+            progressDialog.setMessage("Logging In..");
+            progressDialog.show();
             mAuth.signInWithEmailAndPassword(emailId1,password1).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
-                    progressBar.setVisibility(View.GONE);
+                    progressDialog.dismiss();
                     if(task.isSuccessful())
                     {
 

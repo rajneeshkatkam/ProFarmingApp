@@ -1,5 +1,6 @@
 package com.raj.profarmingapp;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -29,7 +30,7 @@ public class SignUpActivity extends AppCompatActivity {
     Pattern p;
     Matcher m;
     private FirebaseAuth mAuth;
-    ProgressBar progressBar;
+    ProgressDialog progressDialog;
     private StorageReference mStorageRef;
 
 
@@ -40,7 +41,7 @@ public class SignUpActivity extends AppCompatActivity {
         emailId=(EditText) findViewById(R.id.emailId);
         password=(EditText) findViewById(R.id.password);
         mAuth=FirebaseAuth.getInstance();
-        progressBar=(ProgressBar) findViewById(R.id.progressBar);
+        progressDialog=new ProgressDialog(this);
         mStorageRef = FirebaseStorage.getInstance().getReference();
     }
 
@@ -85,11 +86,12 @@ public class SignUpActivity extends AppCompatActivity {
 
         ////New User SignUp
         else {
-            progressBar.setVisibility(View.VISIBLE);
+            progressDialog.setMessage("Registering ..");
+            progressDialog.show();
             mAuth.createUserWithEmailAndPassword(emailId1, password1).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
-                    progressBar.setVisibility(View.GONE);
+                    progressDialog.dismiss();
                     if (task.isSuccessful()) {
 
                         Toast.makeText(getApplicationContext(), "User Registeration Successfull", Toast.LENGTH_SHORT).show();
