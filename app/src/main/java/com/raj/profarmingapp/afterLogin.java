@@ -1,5 +1,7 @@
 package com.raj.profarmingapp;
 
+import android.annotation.SuppressLint;
+import android.app.ActionBar;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -8,6 +10,8 @@ import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -66,6 +70,7 @@ public class afterLogin extends AppCompatActivity {
 
 
 
+    @SuppressLint("RestrictedApi")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -84,6 +89,13 @@ public class afterLogin extends AppCompatActivity {
         pieChart = (PieChart) findViewById(R.id.piechart);
         pieChart.setUsePercentValues(true);
         yvalues = new ArrayList<PieEntry>();
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().isHideOnContentScrollEnabled();
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_reorder_white_24dp);
+
+
+
 
         ///Storage of flag value after the app is killed or shutdown
         file = getSharedPreferences("save", 0);
@@ -119,6 +131,15 @@ public class afterLogin extends AppCompatActivity {
 
 
 
+
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.appbarmenu, menu);
+        return true;
 
     }
 
@@ -213,7 +234,7 @@ public class afterLogin extends AppCompatActivity {
     {
         Log.i("Signout","Logged out");
         mAuth.signOut();
-        startActivity(new Intent(getApplicationContext(),MainActivity.class));
+        startActivity(new Intent(getApplicationContext(),navgationBarActivity.class));
         finish();
         makeToast("Logged out");
     }
@@ -227,7 +248,6 @@ public class afterLogin extends AppCompatActivity {
         phosphorousPercent=soilContent.phosphorous*100/total;
 
     }
-
 
 
     public void drawChart()
