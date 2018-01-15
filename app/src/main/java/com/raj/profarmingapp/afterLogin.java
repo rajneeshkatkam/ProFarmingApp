@@ -7,12 +7,16 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Build;
+import android.support.annotation.NonNull;
+import android.support.design.widget.NavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -56,6 +60,7 @@ public class afterLogin extends AppCompatActivity {
     RelativeLayout chartRelativeLayout;
     ListView fieldInfoListView;
     LinearLayout buttonLayout;
+    NavigationView nav_view;
     //int gallery_Intent=1;
     ProgressDialog progressDialog;
     ArrayList<String> list;
@@ -63,14 +68,11 @@ public class afterLogin extends AppCompatActivity {
     ArrayList<PieEntry> yvalues;
 
 
-
-
     Boolean flag;
     Info irrigation, irrigationValve,sensor,soilContent;
 
 
 
-    @SuppressLint("RestrictedApi")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -95,6 +97,15 @@ public class afterLogin extends AppCompatActivity {
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_reorder_white_24dp);
 
 
+        ///Navigation Side Bar
+        nav_view=findViewById(R.id.nav_view);
+        nav_view.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                Toast.makeText(getApplicationContext(), "Time for an upgrade!", Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        });
 
 
         ///Storage of flag value after the app is killed or shutdown
@@ -130,9 +141,8 @@ public class afterLogin extends AppCompatActivity {
         });
 
 
-
-
     }
+
 
 
     @Override
@@ -234,7 +244,7 @@ public class afterLogin extends AppCompatActivity {
     {
         Log.i("Signout","Logged out");
         mAuth.signOut();
-        startActivity(new Intent(getApplicationContext(),navgationBarActivity.class));
+        startActivity(new Intent(getApplicationContext(),MainActivity.class));
         finish();
         makeToast("Logged out");
     }
@@ -275,10 +285,6 @@ public class afterLogin extends AppCompatActivity {
         data.setValueTextSize(20f);
         pieChart.setDrawHoleEnabled(false);
 
-
-
-
-
     }
 
 
@@ -298,11 +304,6 @@ public class afterLogin extends AppCompatActivity {
         buttonLayout.setVisibility(View.VISIBLE);
 
     }
-
-
-
-
-
 
 
 
