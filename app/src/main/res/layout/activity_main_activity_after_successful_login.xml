@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <LinearLayout
+        <!--<LinearLayout
             android:id="@+id/buttonLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -40,8 +40,66 @@
                 android:onClick="logout"
                 android:text="Logout" />
         </LinearLayout>
+-->
 
-        <ListView
+        <GridLayout
+            android:id="@+id/mainButtonLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="30dp"
+            android:columnCount="2"
+            android:rowCount="2">
+
+
+            <Button
+                android:id="@+id/valveStatusButton"
+                android:layout_width="150dp"
+                android:layout_height="220dp"
+                android:layout_margin="15dp"
+                android:background="@color/colorAccent"
+                android:onClick="valveStatus"
+                android:text="valve Status" />
+
+            <Button
+                android:id="@+id/chartButton"
+                android:layout_width="150dp"
+                android:layout_height="220dp"
+                android:layout_margin="15dp"
+                android:background="@color/colorAccent"
+                android:onClick="chart"
+                android:text="chart" />
+
+
+            <Button
+                android:id="@+id/weatherStatusButton"
+                android:layout_width="150dp"
+                android:layout_height="220dp"
+                android:layout_margin="15dp"
+                android:background="@color/colorAccent"
+                android:onClick="weatherStatus"
+                android:text="Weather" />
+
+
+            <Button
+                android:id="@+id/usefulInformationButton"
+                android:layout_width="150dp"
+                android:layout_height="220dp"
+                android:layout_margin="15dp"
+                android:background="@color/colorAccent"
+                android:onClick="improvingTechniques"
+                android:text="Information and Useful Techniques"
+                android:layout_gravity="center"
+                android:padding="2dp"/>
+
+        </GridLayout>
+
+
+
+
+        <!--<ListView
             android:id="@+id/fieldInfoListView"
             android:layout_width="match_parent"
             android:layout_height="520dp"
@@ -49,9 +107,9 @@
             android:layout_alignParentStart="true"
             android:background="@color/colorPrimary" >
 
-        </ListView>
+        </ListView>-->
 
-        <RelativeLayout
+        <!--<RelativeLayout
             android:id="@+id/chartRelativeLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -72,7 +130,7 @@
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentStart="true" />
         </RelativeLayout>
-
+-->
 
     </RelativeLayout>
 

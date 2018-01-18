@@ -52,8 +52,7 @@ public class mainActivityAfterSuccessfulLogin extends AppCompatActivity {
 
 
     SharedPreferences file;  ///For storing flag value to check the external storage permissions and saving the flag value after the app is being shutdown;
-    Button logout,backChartButton;
-    Button displayChart;
+
     RelativeLayout chartRelativeLayout;
     ListView fieldInfoListView;
     LinearLayout buttonLayout;
@@ -64,7 +63,7 @@ public class mainActivityAfterSuccessfulLogin extends AppCompatActivity {
     ArrayAdapter<String> adapter;
     ArrayList<PieEntry> yvalues;
 
-
+    Button valveStatusButton,chartButton,usefulInformationButton,weatherStatusButton;
     Boolean flag;
     Info irrigation, irrigationValve,sensor,soilContent;
 
@@ -75,18 +74,26 @@ public class mainActivityAfterSuccessfulLogin extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_activity_after_successful_login);
 
-        chartRelativeLayout=(RelativeLayout)findViewById(R.id.chartRelativeLayout);
+        /*chartRelativeLayout=(RelativeLayout)findViewById(R.id.chartRelativeLayout);
         buttonLayout=(LinearLayout)findViewById(R.id.buttonLayout);
         progressDialog=new ProgressDialog(this);
-        fieldInfoListView=(ListView) findViewById(R.id.fieldInfoListView);
+        fieldInfoListView=(ListView) findViewById(R.id.fieldInfoListView);*/
         list=new ArrayList<String>();
         adapter=new ArrayAdapter<String>(getApplicationContext(),android.R.layout.simple_list_item_1,list);
-        logout=(Button) findViewById(R.id.logout);
-        displayChart=(Button)findViewById(R.id.displayChart);
-        backChartButton=(Button)findViewById(R.id.backChartButton);
-        displayChart.setEnabled(false);
-        pieChart = (PieChart) findViewById(R.id.piechart);
-        pieChart.setUsePercentValues(true);
+
+
+        valveStatusButton=findViewById(R.id.valveStatusButton);
+        chartButton=findViewById(R.id.chartButton);
+        usefulInformationButton=findViewById(R.id.usefulInformationButton);
+        weatherStatusButton=findViewById(R.id.weatherStatusButton);
+        valveStatusButton.setEnabled(false);
+        chartButton.setEnabled(false);
+        weatherStatusButton.setEnabled(false);
+
+
+
+        //pieChart = (PieChart) findViewById(R.id.piechart);
+        //pieChart.setUsePercentValues(true);
         yvalues = new ArrayList<PieEntry>();
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -195,7 +202,12 @@ public class mainActivityAfterSuccessfulLogin extends AppCompatActivity {
 
         /// Soil Content Values
         soilContent=dataSnapshot.child(uid).child("soilContents").getValue(Info.class);
-        listElements();
+
+        ///Enabling the buttons after the data is received from the database
+        valveStatusButton.setEnabled(true);
+        chartButton.setEnabled(true);
+       weatherStatusButton.setEnabled(true);
+
 
     }
 
@@ -207,37 +219,8 @@ public class mainActivityAfterSuccessfulLogin extends AppCompatActivity {
     }
 
 
-    public void listElements()
-    {
 
-        list.clear();
-        list.add("                          INFORMATION");
-        list.add("Irrigation Values");
-        list.add("Fertilizer Pump: "+ irrigation.fertilizerPump.toString());
-        list.add("Nitrogen Valve: "+ irrigationValve.nitrogenValve.toString());
-        list.add("Phosphorous Valve: "+ irrigationValve.phosphorousValve.toString());
-        list.add("Potassium Valve: "+ irrigationValve.potassiumValve.toString());
-        list.add("Water Pump: "+ irrigation.waterPump.toString());
-        list.add("");
-        list.add("Sensor Values");
-        list.add("Humidity: "+sensor.humidity.toString());
-        list.add("Moisture: "+sensor.moisture.toString());
-        list.add("Temperature: "+sensor.temperature.toString());
-        list.add("");
-        list.add("Soil Content Values");
-        list.add("Nitrogen: "+soilContent.nitrogen.toString());
-        list.add("pH: "+soilContent.pH.toString());
-        list.add("Phosphorous: "+soilContent.phosphorous.toString());
-        list.add("Potassium: "+soilContent.potassium.toString());
-        fieldInfoListView.setAdapter(adapter);
-        displayChart.setEnabled(true);
-        drawChart();
-
-
-    }
-
-
-    public void logout(View v)
+   /* public void logout(View v)
     {
         Log.i("Signout","Logged out");
         mAuth.signOut();
@@ -245,7 +228,7 @@ public class mainActivityAfterSuccessfulLogin extends AppCompatActivity {
         finish();
         makeToast("Logged out");
     }
-
+*/
     public void percentage()
     {
         int total =soilContent.nitrogen+soilContent.pH+soilContent.phosphorous+soilContent.potassium;
@@ -285,7 +268,7 @@ public class mainActivityAfterSuccessfulLogin extends AppCompatActivity {
     }
 
 
-    void displayChart(View v)
+    /*void displayChart(View v)
     {
 
         chartRelativeLayout.setVisibility(View.VISIBLE);
@@ -293,15 +276,87 @@ public class mainActivityAfterSuccessfulLogin extends AppCompatActivity {
         buttonLayout.setVisibility(View.INVISIBLE);
 
     }
-
-    void backChart(View v)
+*/
+    /*void backChart(View v)
     {
         chartRelativeLayout.setVisibility(View.INVISIBLE);
         fieldInfoListView.setVisibility(View.VISIBLE);
         buttonLayout.setVisibility(View.VISIBLE);
 
+    }*/
+
+
+
+     /*public void listElements()
+    {
+
+        list.clear();
+        list.add("                          INFORMATION");
+        list.add("Irrigation Values");
+        list.add("Fertilizer Pump: "+ irrigation.fertilizerPump.toString());
+        list.add("Nitrogen Valve: "+ irrigationValve.nitrogenValve.toString());
+        list.add("Phosphorous Valve: "+ irrigationValve.phosphorousValve.toString());
+        list.add("Potassium Valve: "+ irrigationValve.potassiumValve.toString());
+        list.add("Water Pump: "+ irrigation.waterPump.toString());
+        list.add("");
+        list.add("Sensor Values");
+        list.add("Humidity: "+sensor.humidity.toString());
+        list.add("Moisture: "+sensor.moisture.toString());
+        list.add("Temperature: "+sensor.temperature.toString());
+        list.add("");
+        list.add("Soil Content Values");
+        list.add("Nitrogen: "+soilContent.nitrogen.toString());
+        list.add("pH: "+soilContent.pH.toString());
+        list.add("Phosphorous: "+soilContent.phosphorous.toString());
+        list.add("Potassium: "+soilContent.potassium.toString());
+        fieldInfoListView.setAdapter(adapter);
+        drawChart();
+
+
     }
 
+*/
+
+    public void valveStatus(View view)
+    {
+        Intent valveStatus =new Intent(getApplicationContext(),valveStatusActivity.class);
+        valveStatus.putExtra("fertilizerPump",irrigation.fertilizerPump);
+        valveStatus.putExtra("nitrogenValve",irrigationValve.nitrogenValve);
+        valveStatus.putExtra("phosphorousValve",irrigationValve.phosphorousValve);
+        valveStatus.putExtra("potassiumValve",irrigationValve.potassiumValve);
+        valveStatus.putExtra("waterPump",irrigation.waterPump);
+        startActivity(valveStatus);
+
+    }
+
+    public void chart(View view)
+    {
+        Intent chart =new Intent(getApplicationContext(),chartActivity.class);
+        chart.putExtra("nitrogen",soilContent.nitrogen);
+        chart.putExtra("pH",soilContent.pH);
+        chart.putExtra("phosphorous",soilContent.phosphorous);
+        chart.putExtra("potassium",soilContent.potassium);
+        startActivity(chart);
+
+    }
+
+    public void improvingTechniques(View view)
+    {
+        Intent improvingTechniques=new Intent(getApplicationContext(),usefulInformationActivity.class);
+        startActivity(improvingTechniques);
+
+
+    }
+
+    public void weatherStatus(View view)
+    {
+        Intent weatherStatus=new Intent(getApplicationContext(),weatherStatusActivity.class);
+        weatherStatus.putExtra("humidity",sensor.humidity);
+        weatherStatus.putExtra("moisture",sensor.moisture);
+        weatherStatus.putExtra("temperature",sensor.temperature);
+        startActivity(weatherStatus);
+
+    }
 
 
     ////For uploading image from the gallery of the phone onto the Firebase storage using button click

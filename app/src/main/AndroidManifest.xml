@@ -26,6 +26,10 @@
         <activity
             android:name=".mainActivityAfterSuccessfulLogin"
             android:theme="@style/MainActivityAfterSuccessfulLoginPageTheme" />
+        <activity android:name=".valveStatusActivity" />
+        <activity android:name=".chartActivity" />
+        <activity android:name=".usefulInformationActivity" />
+        <activity android:name=".weatherStatusActivity"></activity>
     </application>
 
 </manifest>
