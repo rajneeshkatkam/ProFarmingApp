@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -50,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if(currentUser!=null) {
 
-            startActivity(new Intent(getApplicationContext(),afterLogin.class));
+            startActivity(new Intent(getApplicationContext(),mainActivityAfterSuccessfulLogin.class));
             Toast.makeText(getApplicationContext(),"Welcome back",Toast.LENGTH_LONG).show();
             finish();
 
@@ -108,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
                     if(task.isSuccessful())
                     {
 
-                        Intent intent=new Intent(getApplicationContext(),afterLogin.class);
+                        Intent intent=new Intent(getApplicationContext(),mainActivityAfterSuccessfulLogin.class);
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(intent);
                         finish();

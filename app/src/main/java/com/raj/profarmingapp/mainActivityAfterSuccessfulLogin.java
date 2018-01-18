@@ -1,7 +1,5 @@
 package com.raj.profarmingapp;
 
-import android.annotation.SuppressLint;
-import android.app.ActionBar;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -16,7 +14,6 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -42,7 +39,7 @@ import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
 
-public class afterLogin extends AppCompatActivity {
+public class mainActivityAfterSuccessfulLogin extends AppCompatActivity {
     private static final String TAG = "afterLoginActivity";
     private FirebaseAuth mAuth;
     StorageReference mStorage;
@@ -76,7 +73,7 @@ public class afterLogin extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_after_login);
+        setContentView(R.layout.activity_main_activity_after_successful_login);
 
         chartRelativeLayout=(RelativeLayout)findViewById(R.id.chartRelativeLayout);
         buttonLayout=(LinearLayout)findViewById(R.id.buttonLayout);
@@ -170,8 +167,8 @@ public class afterLogin extends AppCompatActivity {
 
 
         if (Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP) {
-            int permissionCheck = afterLogin.this.checkSelfPermission("Manifest.permission.READ_EXTERNAL_STORAGE");
-            permissionCheck += afterLogin.this.checkSelfPermission("Manifest.permission.WRITE_EXTERNAL_STORAGE");
+            int permissionCheck = mainActivityAfterSuccessfulLogin.this.checkSelfPermission("Manifest.permission.READ_EXTERNAL_STORAGE");
+            permissionCheck += mainActivityAfterSuccessfulLogin.this.checkSelfPermission("Manifest.permission.WRITE_EXTERNAL_STORAGE");
             if (permissionCheck != 0) {
                 this.requestPermissions(new String[]{android.Manifest.permission.WRITE_EXTERNAL_STORAGE, android.Manifest.permission.READ_EXTERNAL_STORAGE}, 1001); //Any number
             }
@@ -339,20 +336,6 @@ public class afterLogin extends AppCompatActivity {
         }
     }
     */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 }

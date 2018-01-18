@@ -24,12 +24,8 @@
         </activity>
         <activity android:name=".SignUpActivity" />
         <activity
-            android:name=".afterLogin"
-            android:theme="@style/AppThemeAfterLoginPage" />
-        <activity
-            android:name=".navgationBarActivity"
-            android:label="@string/title_activity_navgation_bar"
-            android:theme="@style/AppTheme"></activity>
+            android:name=".mainActivityAfterSuccessfulLogin"
+            android:theme="@style/MainActivityAfterSuccessfulLoginPageTheme" />
     </application>
 
 </manifest>
