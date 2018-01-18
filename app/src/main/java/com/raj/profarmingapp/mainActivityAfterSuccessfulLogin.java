@@ -136,13 +136,13 @@ public class mainActivityAfterSuccessfulLogin extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 fetchValuesFromDatabase(dataSnapshot);
-
             }
-
             @Override
             public void onCancelled(DatabaseError databaseError) {
             }
         });
+
+
 
 
     }

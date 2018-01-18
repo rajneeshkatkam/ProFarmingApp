@@ -1,9 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
     tools:context="com.raj.profarmingapp.valveStatusActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@color/materialColor"
+        android:gravity="center"
+        android:text="VALVE STATUS"
+        android:textColor="@android:color/black"
+        android:textSize="40sp" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@id/textView"
+        android:background="@color/colorPrimaryDark"
+        android:layout_marginBottom="0dp"
+        android:paddingRight="10dp">
+
+        <Switch
+            android:id="@+id/fertilizerPump"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/colorPrimaryDark"
+            android:text=" Fertilizer Pump"
+            android:textSize="20sp" />
+
+        <Switch
+            android:id="@+id/nitrogenValve"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            android:background="@color/colorPrimaryDark"
+            android:text=" Nitrogen Valve"
+            android:textSize="20sp" />
+
+        <Switch
+            android:id="@+id/phosphorousValve"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:text=" Phosphorous Valve"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            android:background="@color/colorPrimaryDark"
+            android:textSize="20sp" />
+
+        <Switch
+            android:id="@+id/potassiumValve"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:text=" Potassium Valve"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            android:background="@color/colorPrimaryDark"
+            android:textSize="20sp" />
+
+        <Switch
+            android:id="@+id/waterPump"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:text=" Water Pump"
+            android:layout_marginTop="10dp"
+            android:background="@color/colorPrimaryDark"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+</RelativeLayout>
