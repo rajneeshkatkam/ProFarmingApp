@@ -201,8 +201,6 @@ public class mainActivityAfterSuccessfulLogin extends AppCompatActivity {
         sensor=dataSnapshot.child(uid).child("sensor").getValue(Info.class);
 
         /// Soil Content Values
-        soilContent=dataSnapshot.child(uid).child("soilContents").getValue(Info.class);
-
         ///Enabling the buttons after the data is received from the database
         valveStatusButton.setEnabled(true);
         chartButton.setEnabled(true);
@@ -210,14 +208,6 @@ public class mainActivityAfterSuccessfulLogin extends AppCompatActivity {
 
 
     }
-
-
-    // Toast Maker
-    public void makeToast(String s)
-    {
-        Toast.makeText(getApplicationContext(),s,Toast.LENGTH_SHORT).show();
-    }
-
 
 
    /* public void logout(View v)
@@ -229,7 +219,7 @@ public class mainActivityAfterSuccessfulLogin extends AppCompatActivity {
         makeToast("Logged out");
     }
 */
-    public void percentage()
+    /*public void percentage()
     {
         int total =soilContent.nitrogen+soilContent.pH+soilContent.phosphorous+soilContent.potassium;
         nitrogenPercent=soilContent.nitrogen*100/total;
@@ -266,7 +256,7 @@ public class mainActivityAfterSuccessfulLogin extends AppCompatActivity {
         pieChart.setDrawHoleEnabled(false);
 
     }
-
+*/
 
     /*void displayChart(View v)
     {
@@ -332,10 +322,6 @@ public class mainActivityAfterSuccessfulLogin extends AppCompatActivity {
     public void chart(View view)
     {
         Intent chart =new Intent(getApplicationContext(),chartActivity.class);
-        chart.putExtra("nitrogen",soilContent.nitrogen);
-        chart.putExtra("pH",soilContent.pH);
-        chart.putExtra("phosphorous",soilContent.phosphorous);
-        chart.putExtra("potassium",soilContent.potassium);
         startActivity(chart);
 
     }
@@ -351,9 +337,9 @@ public class mainActivityAfterSuccessfulLogin extends AppCompatActivity {
     public void weatherStatus(View view)
     {
         Intent weatherStatus=new Intent(getApplicationContext(),weatherStatusActivity.class);
-        weatherStatus.putExtra("humidity",sensor.humidity);
+        /*weatherStatus.putExtra("humidity",sensor.humidity);
         weatherStatus.putExtra("moisture",sensor.moisture);
-        weatherStatus.putExtra("temperature",sensor.temperature);
+        weatherStatus.putExtra("temperature",sensor.temperature);*/
         startActivity(weatherStatus);
 
     }
