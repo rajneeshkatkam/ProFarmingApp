@@ -4,23 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/materialColor"
     tools:context="com.raj.profarmingapp.MainActivity">
 
     <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="370dp"
+        android:layout_height="620dp"
+        android:background="@drawable/box_shape_white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/colorPrimaryDark"
-            android:scaleType="fitXY"
-            app:srcCompat="@drawable/login_page" />
 
         <EditText
             android:id="@+id/emailId"
@@ -36,14 +30,14 @@
             android:id="@+id/password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/SignupButton"
+            android:layout_above="@+id/LoginButton"
             android:layout_alignParentStart="true"
             android:layout_marginBottom="48dp"
             android:hint="Password"
             android:inputType="textPassword" />
 
         <Button
-            android:id="@+id/SignupButton"
+            android:id="@+id/LoginButton"
             android:layout_width="300dp"
             android:layout_height="50dp"
             android:layout_above="@+id/dontHaveAnAccountButton"

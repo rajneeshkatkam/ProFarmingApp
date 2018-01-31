@@ -3,7 +3,6 @@ package com.raj.profarmingapp;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -22,12 +21,7 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.github.mikephil.charting.charts.PieChart;
-import com.github.mikephil.charting.components.Description;
-import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieEntry;
-import com.github.mikephil.charting.data.PieDataSet;
-import com.github.mikephil.charting.formatter.PercentFormatter;
-import com.github.mikephil.charting.utils.ColorTemplate;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -43,7 +37,7 @@ public class mainActivityAfterSuccessfulLogin extends AppCompatActivity {
     private static final String TAG = "afterLoginActivity";
     private FirebaseAuth mAuth;
     StorageReference mStorage;
-    DatabaseReference mdatabaseReference;
+    DatabaseReference mDatabaseReference;
     String uid;
     PieChart pieChart;
     int nitrogenPercent,pHPercent,potassiumPercent,phosphorousPercent;
@@ -127,12 +121,12 @@ public class mainActivityAfterSuccessfulLogin extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         uid=mAuth.getCurrentUser().getUid();
         mStorage= FirebaseStorage.getInstance().getReference();
-        mdatabaseReference= FirebaseDatabase.getInstance().getReference();
+        mDatabaseReference = FirebaseDatabase.getInstance().getReference();
 
 
 
         ////Real time database update and control
-        mdatabaseReference.addValueEventListener(new ValueEventListener() {
+        mDatabaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 fetchValuesFromDatabase(dataSnapshot);
