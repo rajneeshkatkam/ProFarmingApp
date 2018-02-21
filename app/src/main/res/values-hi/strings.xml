@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">प्रो फार्मिंग ऐप</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+    <string name="title_activity_after_login_with_navigation_bar">afterLoginWithNavigationBar</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">वाल्व स्थिति</string>
+    <string name="title_activity_chart">चार्ट</string>
+    <string name="title_activity_navgation_bar">navgationBarActivity</string>
+
+    <string name="EmailAddress">ईमेल आईडी</string>
+    <string name="Settings">सेटिंग्स</string>
+    <string name="Logout">लोग आउट</string>
+    <string name="Password">पारण शब्द</string>
+    <string name="signup">खाता नहीं है? साइन अप करें</string>
+
+
+    <string name="AlreadyHaveAnAccount">क्या आपके पास पहले से एक खाता मौजूद है? लॉग इन करें</string>
+    <string name="valveStatus">वाल्व स्थिति</string>
+    <string name="chart">चार्ट</string>
+    <string name="Weather">मौसम</string>
+    <string name="InformationandUsefulTechniques">सूचना और उपयोगी तकनीक</string>
+    <string name="FertilizerPump"> उर्वरक पम्प</string>
+    <string name="NitrogenValve"> नाइट्रोजन वाल्व</string>
+    <string name="PhosphorousValve"> फास्फोरस वाल्व</string>
+    <string name="PotassiumValve"> पोटेशियम वाल्व</string>
+    <string name="WaterPump"> पानी का पंप</string>
+    <string name="VALVESTATUS">वाल्व स्थिति</string>
+
+
+
+
+
+
+
+</resources>
