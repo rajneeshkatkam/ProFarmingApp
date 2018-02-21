@@ -13,7 +13,7 @@
         android:layout_height="100dp"
         android:background="@color/materialColor"
         android:gravity="center"
-        android:text="VALVE STATUS"
+        android:text="@string/VALVESTATUS"
         android:textColor="@android:color/black"
         android:textSize="40sp" />
 
@@ -24,8 +24,7 @@
         android:orientation="vertical"
         android:layout_below="@id/textView"
         android:background="@color/colorPrimaryDark"
-        android:layout_marginBottom="0dp"
-        android:paddingRight="10dp">
+        android:padding="10dp">
 
         <Switch
             android:id="@+id/fertilizerPump"
@@ -34,7 +33,7 @@
             android:layout_marginBottom="20dp"
             android:layout_marginTop="10dp"
             android:background="@color/colorPrimaryDark"
-            android:text=" Fertilizer Pump"
+            android:text="@string/FertilizerPump"
             android:textSize="20sp" />
 
         <Switch
@@ -44,14 +43,14 @@
             android:layout_marginTop="10dp"
             android:layout_marginBottom="20dp"
             android:background="@color/colorPrimaryDark"
-            android:text=" Nitrogen Valve"
+            android:text="@string/NitrogenValve"
             android:textSize="20sp" />
 
         <Switch
             android:id="@+id/phosphorousValve"
             android:layout_width="match_parent"
             android:layout_height="70dp"
-            android:text=" Phosphorous Valve"
+            android:text="@string/PhosphorousValve"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="20dp"
             android:background="@color/colorPrimaryDark"
@@ -61,7 +60,7 @@
             android:id="@+id/potassiumValve"
             android:layout_width="match_parent"
             android:layout_height="70dp"
-            android:text=" Potassium Valve"
+            android:text="@string/PotassiumValve"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="20dp"
             android:background="@color/colorPrimaryDark"
@@ -71,7 +70,7 @@
             android:id="@+id/waterPump"
             android:layout_width="match_parent"
             android:layout_height="70dp"
-            android:text=" Water Pump"
+            android:text="@string/WaterPump"
             android:layout_marginTop="10dp"
             android:background="@color/colorPrimaryDark"
             android:textSize="20sp" />

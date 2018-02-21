@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    void loginClick(View v)
+    public void loginClick(View v)
     {
         String emailId1=emailId.getText().toString();
         String password1=password.getText().toString();
@@ -124,13 +124,13 @@ public class MainActivity extends AppCompatActivity {
         }
 
         }
-    void dontHaveAnAccountClick(View v)
-    {
 
+
+
+    public void dontHaveAnAccountClick(View view) {
         Log.i("Register","Register button pressed");
         startActivity(new Intent(this,SignUpActivity.class));
         finish();
     }
-
 
 }

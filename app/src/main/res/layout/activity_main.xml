@@ -23,7 +23,7 @@
             android:layout_above="@+id/password"
             android:layout_alignParentStart="true"
             android:layout_marginBottom="34dp"
-            android:hint="Email ID"
+            android:hint="@string/EmailAddress"
             android:inputType="textEmailAddress" />
 
         <EditText
@@ -33,7 +33,7 @@
             android:layout_above="@+id/LoginButton"
             android:layout_alignParentStart="true"
             android:layout_marginBottom="48dp"
-            android:hint="Password"
+            android:hint="@string/Password"
             android:inputType="textPassword" />
 
         <Button
@@ -49,7 +49,6 @@
 
         <Button
             android:id="@+id/dontHaveAnAccountButton"
-            style="@style/Widget.AppCompat.Button.Small"
             android:layout_width="wrap_content"
             android:layout_height="20dp"
             android:layout_alignParentBottom="true"
@@ -58,7 +57,7 @@
             android:layout_marginTop="10dp"
             android:background="?android:attr/scrollbarTrackVertical"
             android:onClick="dontHaveAnAccountClick"
-            android:text="Don't have an account? Sign Up"
+            android:text="@string/signup"
             android:textAllCaps="false"
             android:textColor="@android:color/background_light" />
 

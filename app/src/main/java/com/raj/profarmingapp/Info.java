@@ -1,13 +1,9 @@
 package com.raj.profarmingapp;
 
-/**
- * Created by RAJ on 12-01-2018.
- */
-
 public class Info {
 
-    public Boolean fertilizerPump,nitrogenValve,phosphorousValve,potassiumValve,waterPump;
-    public Integer humidity,moisture,temperature,nitrogen,pH,phosphorous,potassium;
+    Boolean fertilizerPump,nitrogenValve,phosphorousValve,potassiumValve,waterPump;
+    Integer humidity,moisture,temperature,nitrogen,pH,phosphorous,potassium;
 
     Info ()
     {

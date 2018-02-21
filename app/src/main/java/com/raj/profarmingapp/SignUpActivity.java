@@ -28,7 +28,6 @@ public class SignUpActivity extends AppCompatActivity {
     Matcher m;
     private FirebaseAuth mAuth;
     ProgressDialog progressDialog;
-    private StorageReference mStorageRef;
 
 
     @Override
@@ -39,11 +38,11 @@ public class SignUpActivity extends AppCompatActivity {
         password=(EditText) findViewById(R.id.password);
         mAuth=FirebaseAuth.getInstance();
         progressDialog=new ProgressDialog(this);
-        mStorageRef = FirebaseStorage.getInstance().getReference();
+        StorageReference mStorageRef = FirebaseStorage.getInstance().getReference();
     }
 
 
-    void signupClick(View v)
+    public void signupClick(View v)
     {
 
 
@@ -104,7 +103,7 @@ public class SignUpActivity extends AppCompatActivity {
                     }
                     else
                     {
-                        Toast.makeText(getApplicationContext(), task.getException().toString(), Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), String.valueOf(task.getException()), Toast.LENGTH_LONG).show();
                     }
 
                 }
@@ -113,7 +112,7 @@ public class SignUpActivity extends AppCompatActivity {
 
     }
 
-    void alreadyHaveAnAccountClick(View v)
+    public void alreadyHaveAnAccountClick(View v)
     {
         startActivity(new Intent(this,MainActivity.class));
         finish();

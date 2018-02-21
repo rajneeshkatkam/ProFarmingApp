@@ -62,7 +62,7 @@
                 android:layout_margin="15dp"
                 android:background="@color/colorAccent"
                 android:onClick="valveStatus"
-                android:text="valve Status" />
+                android:text="@string/valveStatus" />
 
             <Button
                 android:id="@+id/chartButton"
@@ -71,7 +71,7 @@
                 android:layout_margin="15dp"
                 android:background="@color/colorAccent"
                 android:onClick="chart"
-                android:text="chart" />
+                android:text="@string/chart" />
 
 
             <Button
@@ -81,7 +81,7 @@
                 android:layout_margin="15dp"
                 android:background="@color/colorAccent"
                 android:onClick="weatherStatus"
-                android:text="Weather" />
+                android:text="@string/Weather" />
 
 
             <Button
@@ -93,7 +93,7 @@
                 android:background="@color/colorAccent"
                 android:onClick="improvingTechniques"
                 android:padding="2dp"
-                android:text="Information and Useful Techniques" />
+                android:text="@string/InformationandUsefulTechniques" />
 
         </GridLayout>
 
