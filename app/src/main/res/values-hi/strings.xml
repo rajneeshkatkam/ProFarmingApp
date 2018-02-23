@@ -17,6 +17,9 @@
     <string name="Password">पारण शब्द</string>
     <string name="signup">खाता नहीं है? साइन अप करें</string>
 
+    <string name="plant_disease_detector">संयंत्र रोग डिटेक्टर</string>
+    <string name="plant_disease_upload">संयंत्र रोग अपलोड</string>
+
 
     <string name="AlreadyHaveAnAccount">क्या आपके पास पहले से एक खाता मौजूद है? लॉग इन करें</string>
     <string name="valveStatus">वाल्व स्थिति</string>

@@ -16,7 +16,7 @@
         android:layout_marginTop="20dp"
         android:background="@color/colorPrimary"
         android:onClick="plantDisease"
-        android:text="Plant Image Upload"
+        android:text="@string/plant_disease_upload"
         android:textSize="20sp" />
 
     <TextView

@@ -84,7 +84,7 @@
                 android:textSize="15sp"
                 android:background="@color/colorAccent"
                 android:onClick="plantDisease"
-                android:text="Plant Disease Detect" />
+                android:text="@string/plant_disease_detector" />
 
 
             <Button

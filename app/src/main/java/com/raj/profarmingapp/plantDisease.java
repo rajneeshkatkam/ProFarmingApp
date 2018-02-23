@@ -46,7 +46,7 @@ public class plantDisease extends AppCompatActivity {
 
     }
 
-    void plantDisease(View v)
+    public void plantDisease(View v)
     {
         Intent intent=new Intent(Intent.ACTION_PICK);
         intent.setType("image/*");
