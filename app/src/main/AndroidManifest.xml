@@ -7,6 +7,8 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -29,7 +31,9 @@
         <activity android:name=".valveStatusActivity" />
         <activity android:name=".chartActivity" />
         <activity android:name=".usefulInformationActivity" />
-        <activity android:name=".weatherStatusActivity"></activity>
+        <activity android:name=".weatherStatusActivity" />
+        <activity android:name=".plantDisease"></activity>
+        <service android:name="org.eclipse.paho.android.service.MqttService" />
     </application>
 
 </manifest>

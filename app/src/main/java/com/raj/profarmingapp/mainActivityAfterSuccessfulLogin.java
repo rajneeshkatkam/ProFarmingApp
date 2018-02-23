@@ -327,13 +327,12 @@ public class mainActivityAfterSuccessfulLogin extends AppCompatActivity {
 
     }
 
-    public void weatherStatus(View view)
+    public void plantDisease(View view)
     {
-        Intent weatherStatus=new Intent(getApplicationContext(),weatherStatusActivity.class);
-        /*weatherStatus.putExtra("humidity",sensor.humidity);
-        weatherStatus.putExtra("moisture",sensor.moisture);
-        weatherStatus.putExtra("temperature",sensor.temperature);*/
-        startActivity(weatherStatus);
+        /*Intent weatherStatus=new Intent(getApplicationContext(),weatherStatusActivity.class);
+        startActivity(weatherStatus);*/
+        Intent plantDisease=new Intent(getApplicationContext(),plantDisease.class);
+        startActivity(plantDisease);
 
     }
 
